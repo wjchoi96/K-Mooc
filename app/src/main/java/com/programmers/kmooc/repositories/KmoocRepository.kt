@@ -49,12 +49,10 @@ class KmoocRepository {
     }
 
     private fun parseLectureList(jsonObject: JSONObject): LectureList {
-        //TODO: JSONObject -> LectureList 를 구현하세요
-        return LectureList.EMPTY
+        return LectureList.from(jsonObject) ?: LectureList.EMPTY
     }
 
     private fun parseLecture(jsonObject: JSONObject): Lecture {
-        //TODO: JSONObject -> Lecture 를 구현하세요
-        return Lecture.EMPTY
+        return Lecture.from(jsonObject) ?: Lecture.EMPTY
     }
 }
