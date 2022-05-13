@@ -1,5 +1,6 @@
 package com.programmers.kmooc.repositories
 
+import android.util.Log
 import com.programmers.kmooc.models.Lecture
 import com.programmers.kmooc.models.LectureList
 import com.programmers.kmooc.network.HttpClient
@@ -23,6 +24,7 @@ class KmoocRepository {
             mapOf("serviceKey" to serviceKey, "Mobile" to 1)
         ) { result ->
             result.onSuccess {
+                Log.d("test", "list api res : $it")
                 completed(parseLectureList(JSONObject(it)))
             }
         }
@@ -32,6 +34,7 @@ class KmoocRepository {
         val nextPageUrl = currentPage.next
         httpClient.getJson(nextPageUrl, emptyMap()) { result ->
             result.onSuccess {
+                Log.d("test", "next list api res : $it")
                 completed(parseLectureList(JSONObject(it)))
             }
         }
@@ -43,6 +46,7 @@ class KmoocRepository {
             mapOf("CourseId" to courseId, "serviceKey" to serviceKey)
         ) { result ->
             result.onSuccess {
+                Log.d("test", "detail api res : $it")
                 completed(parseLecture(JSONObject(it)))
             }
         }
