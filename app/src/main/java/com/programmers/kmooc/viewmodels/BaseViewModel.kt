@@ -23,19 +23,19 @@ abstract class BaseViewModel: ViewModel() {
     /**
      * data
      */
-    private var loading : Boolean = false
+    protected var loading : Boolean = false
 
 
     protected fun setDataLoading(loading: Boolean){
         this.loading =  loading
-        _dataLoading.value = loading
+        _dataLoading.postValue(loading)
     }
 
     protected fun setRefreshLoading(loading: Boolean){
-        _refreshLoading.value = loading
+        _refreshLoading.postValue(loading)
     }
 
     protected fun showToast(message: String){
-        _showToastEvent.value = message
+        _showToastEvent.postValue(message)
     }
 }
