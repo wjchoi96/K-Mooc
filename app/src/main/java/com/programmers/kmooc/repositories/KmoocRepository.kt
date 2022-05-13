@@ -17,7 +17,7 @@ class KmoocRepository {
     private val serviceKey = "w%2BZFjxSH9DF5oVD0e6TxJTL7F95XsTL4N8ap2Q4ontDMEbIKr0odCjOxfSfen3ooWxMYov4L3yCLswXBJNBnGA%3D%3D"
         //"LwG%2BoHC0C5JRfLyvNtKkR94KYuT2QYNXOT5ONKk65iVxzMXLHF7SMWcuDqKMnT%2BfSMP61nqqh6Nj7cloXRQXLA%3D%3D"
 
-    fun list(completed: (LectureList) -> Unit) {
+    fun fetchList(completed: (LectureList) -> Unit) {
         httpClient.getJson(
             "/courseList",
             mapOf("serviceKey" to serviceKey, "Mobile" to 1)
@@ -28,7 +28,7 @@ class KmoocRepository {
         }
     }
 
-    fun next(currentPage: LectureList, completed: (LectureList) -> Unit) {
+    fun fetchNextList(currentPage: LectureList, completed: (LectureList) -> Unit) {
         val nextPageUrl = currentPage.next
         httpClient.getJson(nextPageUrl, emptyMap()) { result ->
             result.onSuccess {
