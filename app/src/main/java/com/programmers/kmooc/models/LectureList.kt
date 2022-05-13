@@ -18,10 +18,10 @@ data class LectureList(
             return try{
                 jsonObject.run {
                     LectureList(
-                        getInt("count"),
-                        getInt("num_pages"),
-                        getString("previous"),
-                        getString("next"),
+                        getJSONObject("pagination").getInt("count"),
+                        getJSONObject("pagination").getInt("num_pages"),
+                        getJSONObject("pagination").getString("previous"),
+                        getJSONObject("pagination").getString("next"),
                         getJSONArray("results").run {
                             mutableListOf<Lecture>().apply {
                                 for(i in 0 until length()){
