@@ -25,9 +25,8 @@ class KmoocListActivity : AppCompatActivity() {
         initData()
         binding = ActivityKmookListBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         initView()
-
+        setUpViewModel()
         viewModel.fetchList()
     }
 
@@ -41,7 +40,6 @@ class KmoocListActivity : AppCompatActivity() {
     private fun initView(){
         setUpRecyclerView()
         setUpPullToRefresh()
-        bind()
     }
 
     private fun setUpRecyclerView(){
@@ -72,7 +70,7 @@ class KmoocListActivity : AppCompatActivity() {
         }
     }
 
-    private fun bind(){
+    private fun setUpViewModel(){
         viewModel.dataLoading .observe(this){
             binding.progressBar.visibility = it.toVisibility()
         }
