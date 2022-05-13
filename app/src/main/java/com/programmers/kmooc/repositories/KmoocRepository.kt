@@ -14,8 +14,8 @@ class KmoocRepository {
      */
 
     private val httpClient = HttpClient("http://apis.data.go.kr/B552881/kmooc")
-    private val serviceKey =
-        "LwG%2BoHC0C5JRfLyvNtKkR94KYuT2QYNXOT5ONKk65iVxzMXLHF7SMWcuDqKMnT%2BfSMP61nqqh6Nj7cloXRQXLA%3D%3D"
+    private val serviceKey = "w%2BZFjxSH9DF5oVD0e6TxJTL7F95XsTL4N8ap2Q4ontDMEbIKr0odCjOxfSfen3ooWxMYov4L3yCLswXBJNBnGA%3D%3D"
+        //"LwG%2BoHC0C5JRfLyvNtKkR94KYuT2QYNXOT5ONKk65iVxzMXLHF7SMWcuDqKMnT%2BfSMP61nqqh6Nj7cloXRQXLA%3D%3D"
 
     fun list(completed: (LectureList) -> Unit) {
         httpClient.getJson(
