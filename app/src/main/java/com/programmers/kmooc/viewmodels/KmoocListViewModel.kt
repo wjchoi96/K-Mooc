@@ -7,7 +7,7 @@ import com.programmers.kmooc.models.LectureList
 import com.programmers.kmooc.repositories.KmoocRepository
 import java.util.Collections.addAll
 
-class KmoocListViewModel(private val repository: KmoocRepository) : ViewModel() {
+class KmoocListViewModel(private val repository: KmoocRepository) : BaseViewModel() {
 
     fun list() {
         repository.list { lectureList ->

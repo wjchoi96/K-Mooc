@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.programmers.kmooc.repositories.KmoocRepository
 
 
-class KmoocDetailViewModel(private val repository: KmoocRepository) : ViewModel() {
+class KmoocDetailViewModel(private val repository: KmoocRepository) : BaseViewModel() {
 
     fun detail(courseId: String) {
         repository.detail(courseId) { lecture ->
